@@ -1,0 +1,13 @@
+sqoop import -Dorg.apache.sqoop.splitter.allow_text_splitter=true 
+--connect jdbc:mysql://localhost/JDBC --driver com.mysql.jdbc.Driver --username root --password password 
+--query " SELECT CREDIT_CARD_NO,
+	   (SELECT CONCAT(YEAR, LPAD(MONTH,2,'0'), LPAD(DAY,2,'0'))),
+       CUST_SSN,
+       BRANCH_CODE,
+       TRANSACTION_TYPE,
+       TRANSACTION_VALUE,
+       TRANSACTION_ID
+FROM CDW_SAPP_CREDITCARD WHERE \$CONDITIONS " 
+--split-by CREDIT_CARD_NO
+--target-dir /user/maria_dev/CREDIT_CARD_SYSTEM/CDW_SAPP_CREDITCARD/
+--fields-terminated-by ','
