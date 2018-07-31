@@ -1,6 +1,6 @@
 # DE01-Dallas
 
-Author : Peter Li:
+Author : Peter Li
 
 --------------
 
