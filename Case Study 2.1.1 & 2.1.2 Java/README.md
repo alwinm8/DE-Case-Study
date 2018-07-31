@@ -3,6 +3,7 @@
 
 
         change the password in connection.java to connect MySQL server.
+        which is "private String pass = "YOUR PASSWORD";
 
 
 
