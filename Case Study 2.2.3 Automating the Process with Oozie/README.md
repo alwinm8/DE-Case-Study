@@ -31,8 +31,11 @@ Under each subdirectory, take BRANCH as an example, has 7 files, which are :
                                       Creditcardjob.txt
                                       Customerjob.txt
                                       Timejob.txt
+                                      
+ 3. Create a a directory under maria_dev named lib, put the java-jason.jar file there.
+ 
   
-  3. After you create the jobs, then you can run it in oozie:
+ 4. After you create the jobs, then you can run it in oozie:
                                       
                                        
                                       oozie job --oozie http://localhost:11000/oozie -config BRANCH_workflow.xml -run
