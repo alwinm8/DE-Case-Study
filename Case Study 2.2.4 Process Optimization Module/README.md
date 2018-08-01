@@ -12,17 +12,20 @@ How to test this project:
                                             TimeJobAppend
  
  For the BranchJobAppend:
-     use incremental lastmodified
-     The check-column is LAST_UPDATED. It is a timestamp column
+ 
+     -use incremental lastmodified
+     -The check-column is LAST_UPDATED. It is a timestamp column
      
  For the CustomerJobAppend:
-     use incremental lastmodified
-     The check-column is LAST_UPDATED. It is a timestamp column
+ 
+     -use incremental lastmodified
+     -The check-column is LAST_UPDATED. It is a timestamp column
      
  For the CreditcardJobAppend:
-     use incremental append
-     The check-column is TRASANCTION_ID
-     So if you want to insert data into CDW_SAPP_D_CREDIT_CARD, The TRASACTION_ID must larger than 46694,
+ 
+     -use incremental append
+     -The check-column is TRASANCTION_ID
+     -So if you want to insert data into CDW_SAPP_D_CREDIT_CARD, The TRASACTION_ID must larger than 46694,
      
   EX:
      insert into CDW_SAPP_CREDITCARD
@@ -31,9 +34,10 @@ How to test this project:
      (46695,31,7,2018,114,'BILLS','23.456');
      
   For the TimeJobAppend:
-      use incremental append
-      the check-column is 'TIMEID'
-      If you change the CREDITCARD table, it will shown changed in TIME table too 
+  
+      -use incremental append
+      -the check-column is 'TIMEID'
+      -If you change the CREDITCARD table, it will shown changed in TIME table too 
      
      
 2. create CREDIT_CARD_OOZIE_APPEND under maria_dev, 
