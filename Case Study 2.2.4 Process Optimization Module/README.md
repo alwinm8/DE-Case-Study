@@ -71,6 +71,10 @@ How to test this project:
  After you execute the workflow, the oozie job will execute the BranchJobAppend for the first time, then build CDW_SAPP_D_BRANCH.
  This workflow has no coordinator so it only executes once.
  
+ ------
+ ----
+ YOU must run BRANCH_job.properties first BEFORE you run BRANCH_job_append.properties!!!
+ -----
  
  
   Each coordinator folder contains 4 files, take BRANCH as an example:
