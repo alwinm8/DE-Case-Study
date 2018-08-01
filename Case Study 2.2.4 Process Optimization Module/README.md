@@ -28,10 +28,11 @@ How to test this project:
      -So if you want to insert data into CDW_SAPP_D_CREDIT_CARD, The TRASACTION_ID must larger than 46694,
      
   EX:
-     insert into CDW_SAPP_CREDITCARD
-     (TRANSACTION_ID,DAY,MONTH,YEAR,BRANCH_CODE,TRANSACTION_TYPE, TRANSACTION_VALUE)
-      VALUES
-     (46695,31,7,2018,114,'BILLS','23.456');
+  
+                    insert into CDW_SAPP_CREDITCARD
+                   (TRANSACTION_ID,DAY,MONTH,YEAR,BRANCH_CODE,TRANSACTION_TYPE, TRANSACTION_VALUE)
+                    VALUES
+                   (46695,31,7,2018,114,'BILLS','23.456');
      
   For the TimeJobAppend:
   
