@@ -43,14 +43,16 @@ How to test this project:
      
 2. create CREDIT_CARD_OOZIE_APPEND under maria_dev, 
 
-   and  BRANCH_workflow
-        BRANCH_coordinator
-        CREDITCARD_workflow
-        CREDITCARD_coordinator
-        CUSTOMER_workflow
-        CUSTOMER_coordinator
-        TIME_workflow
-        TIME_coordinator
+   and  
+   
+                                    BRANCH_workflow
+                                    BRANCH_coordinator
+                                    CREDITCARD_workflow
+                                    CREDITCARD_coordinator
+                                    CUSTOMER_workflow
+                                    CUSTOMER_coordinator
+                                    TIME_workflow
+                                    TIME_coordinator
     
   under CREDIT_CARD_OOZIE_APPEND.
 
