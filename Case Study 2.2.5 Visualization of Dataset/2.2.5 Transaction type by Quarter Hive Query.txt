@@ -1,6 +1,0 @@
-select transaction_type,quarter,sum(transaction_value)
-from cdw_sapp_d_credit_card cc
-inner join cdw_sapp_d_time t
-on cc.timeid = t.timeid
-where t.year = '2018'
-group by transaction_type, quarter
