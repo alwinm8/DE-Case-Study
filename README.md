@@ -1,7 +1,7 @@
 # Data Engineering Case Study
 ## Core Java
 - Files: `DECaseStudy.zip`
-- Description: The zip file `DECaseStudy.zip` is the eclipse project that includes the JDBC library jar file in place. The main class is the `DECaseStudy.java` class and can take arguments of connection url, username, and password. The default values for user and password are “root” and “mysql” and should be changed for local MySQL configuration. When running, the first message will let you know if the connection with MySQL was successful, then prompt you to enter 1-3 for transaction details, customer details, and exiting the application.
+- Description: The zip file `DECaseStudy.zip` is the Java eclipse project that includes the JDBC library jar file in place. The main class is the `DECaseStudy.java` class and can take arguments of connection url, username, and password. The default values for user and password are “root” and “mysql” and should be changed for local MySQL configuration. When running, the first message will let you know if the connection with MySQL was successful, then prompt you to enter 1-3 for transaction details, customer details, and exiting the application.
 
 ## RDBMS/MySQL
 - Files: `CDW_SAPP.sql`
