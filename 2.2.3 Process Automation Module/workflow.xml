@@ -1,0 +1,80 @@
+<workflow-app xmlns = "uri:oozie:workflow:0.2" name = "automation">
+   <start to = "extract_customer"/>
+
+   <action name = "extract_customer">
+      <sqoop xmlns = "uri:oozie:sqoop-action:0.2">
+         <job-tracker>${jobTracker}</job-tracker>
+         <name-node>${nameNode}</name-node>
+         <prepare>
+               <delete path="${nameNode}/Credit_Card_System/"/>
+               <mkdir path="${nameNode}/Credit_Card_System"/>
+         </prepare>
+         <command>job --meta-connect jdbc:hsqldb:hsql://localhost:16000/sqoop --exec sqoop_customer</command>
+         <archive>/user/maria_dev/case_study/lib/java-json.jar#java-json.jar</archive>
+      </sqoop>
+      <ok to ="extract_branch" />
+      <error to ="kill_job" />
+   </action>
+
+   <action name = "extract_branch">
+      <sqoop xmlns = "uri:oozie:sqoop-action:0.2">
+         <job-tracker>${jobTracker}</job-tracker>
+         <name-node>${nameNode}</name-node>
+         <command>job --meta-connect jdbc:hsqldb:hsql://localhost:16000/sqoop --exec sqoop_branch</command>
+         <archive>/user/maria_dev/case_study/lib/java-json.jar#java-json.jar</archive>
+      </sqoop>
+      <ok to ="extract_time" />
+      <error to ="kill_job" />
+   </action>
+
+   <action name = "extract_time">
+      <sqoop xmlns = "uri:oozie:sqoop-action:0.2">
+         <job-tracker>${jobTracker}</job-tracker>
+         <name-node>${nameNode}</name-node>
+         <command>job --meta-connect jdbc:hsqldb:hsql://localhost:16000/sqoop --exec sqoop_time</command>
+         <archive>/user/maria_dev/case_study/lib/java-json.jar#java-json.jar</archive>
+      </sqoop>
+      <ok to ="extract_creditcard" />
+      <error to ="kill_job" />
+   </action>
+
+   <action name = "extract_creditcard">
+      <sqoop xmlns = "uri:oozie:sqoop-action:0.2">
+         <job-tracker>${jobTracker}</job-tracker>
+         <name-node>${nameNode}</name-node>
+         <command>job --meta-connect jdbc:hsqldb:hsql://localhost:16000/sqoop --exec sqoop_creditcard</command>
+         <archive>/user/maria_dev/case_study/lib/java-json.jar#java-json.jar</archive>
+      </sqoop>
+      <ok to ="rename_sqoop" />
+      <error to ="kill_job" />
+   </action>
+
+   <action name="rename_sqoop">
+        <fs>
+            <move source='${nameNode}/Credit_Card_System/CDW_SAPP_D_CUSTOMER/part-m-00000' target='${nameNode}/Credit_Card_System/CDW_SAPP_CUSTOMER.txt'/>
+            <move source='${nameNode}/Credit_Card_System/CDW_SAPP_D_BRANCH/part-m-00000' target='${nameNode}/Credit_Card_System/CDW_SAPP_BRANCH.txt'/>
+            <move source='${nameNode}/Credit_Card_System/CDW_SAPP_D_TIME/part-m-00000' target='${nameNode}/Credit_Card_System/CDW_SAPP_TIME.txt'/>
+            <move source='${nameNode}/Credit_Card_System/CDW_SAPP_F_CREDIT_CARD/part-m-00000' target='${nameNode}/Credit_Card_System/CDW_SAPP_CREDITCARD.txt'/>
+        </fs>
+        <ok to="hive_create_import"/>
+        <error to="kill_job"/>
+    </action>
+
+   <action name="hive_create_import">
+        <hive xmlns="uri:oozie:hive-action:0.2">
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <script>/user/maria_dev/case_study/hive.hql</script>
+            <archive>/user/maria_dev/case_study/lib/java-json.jar#java-json.jar</archive>
+        </hive>
+        <ok to="end"/>
+        <error to="kill_job"/>
+    </action>
+
+   
+   <kill name = "kill_job">
+      <message>Job failed</message>
+   </kill>
+	
+   <end name = "end" />
+</workflow-app>
