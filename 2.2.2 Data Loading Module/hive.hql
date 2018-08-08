@@ -28,7 +28,7 @@ CREATE TABLE default.temp_customer(
 	FIELDS TERMINATED BY ','
 	STORED AS TEXTFILE;
 	
-	LOAD DATA INPATH '/Credit_Card_System/CDW_SAPP_CUSTOMER.txt' INTO TABLE temp_customer;
+	LOAD DATA INPATH '/user/maria_dev/Credit_Card_System/CDW_SAPP_CUSTOMER.txt' INTO TABLE temp_customer;
 
 --create temporary table for branch and load
 CREATE TABLE default.temp_branch(
@@ -45,7 +45,7 @@ CREATE TABLE default.temp_branch(
 	FIELDS TERMINATED BY ','
 	STORED AS TEXTFILE;
 
-	LOAD DATA INPATH '/Credit_Card_System/CDW_SAPP_BRANCH.txt' INTO TABLE temp_branch;
+	LOAD DATA INPATH '/user/maria_dev/Credit_Card_System/CDW_SAPP_BRANCH.txt' INTO TABLE temp_branch;
 
 --create temporary table for time and load
 CREATE TABLE default.temp_time(
@@ -59,7 +59,7 @@ CREATE TABLE default.temp_time(
 	FIELDS TERMINATED BY ','
 	STORED AS TEXTFILE;
 
-	LOAD DATA INPATH '/Credit_Card_System/CDW_SAPP_TIME.txt' INTO TABLE temp_time;
+	LOAD DATA INPATH '/user/maria_dev/Credit_Card_System/CDW_SAPP_TIME.txt' INTO TABLE temp_time;
 
 --create temporary table for credit card and load
 CREATE TABLE default.temp_creditcard(
@@ -74,7 +74,7 @@ CREATE TABLE default.temp_creditcard(
 	FIELDS TERMINATED BY ','
 	STORED AS TEXTFILE;
 
-	LOAD DATA INPATH '/Credit_Card_System/CDW_SAPP_CREDITCARD.txt' INTO TABLE temp_creditcard;
+	LOAD DATA INPATH '/user/maria_dev/Credit_Card_System/CDW_SAPP_CREDITCARD.txt' INTO TABLE temp_creditcard;
 
 --set important variables for dynamic partitioning
 set hive.exec.dynamic.partition=true;

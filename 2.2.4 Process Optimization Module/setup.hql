@@ -23,7 +23,7 @@ CREATE EXTERNAL TABLE IF NOT EXISTS default.temp_customer(
 	ROW FORMAT DELIMITED
 	FIELDS TERMINATED BY ','
 	STORED AS TEXTFILE
-	LOCATION '/Credit_Card_System/CDW_SAPP_D_CUSTOMER/';
+	LOCATION '/user/maria_dev/Credit_Card_System/CDW_SAPP_D_CUSTOMER/';
 
 --create temporary table for branch and load
 CREATE EXTERNAL TABLE IF NOT EXISTS default.temp_branch(
@@ -39,7 +39,7 @@ CREATE EXTERNAL TABLE IF NOT EXISTS default.temp_branch(
 	ROW FORMAT DELIMITED
 	FIELDS TERMINATED BY ','
 	STORED AS TEXTFILE
-	LOCATION '/Credit_Card_System/CDW_SAPP_D_BRANCH/';
+	LOCATION '/user/maria_dev/Credit_Card_System/CDW_SAPP_D_BRANCH/';
 
 
 --create temporary table for time and load
@@ -53,7 +53,7 @@ CREATE EXTERNAL TABLE IF NOT EXISTS default.temp_time(
 	ROW FORMAT DELIMITED
 	FIELDS TERMINATED BY ','
 	STORED AS TEXTFILE
-	LOCATION '/Credit_Card_System/CDW_SAPP_D_TIME/';
+	LOCATION '/user/maria_dev/Credit_Card_System/CDW_SAPP_D_TIME/';
 
 --create temporary table for credit card and load
 CREATE EXTERNAL TABLE IF NOT EXISTS default.temp_creditcard(
@@ -67,5 +67,5 @@ CREATE EXTERNAL TABLE IF NOT EXISTS default.temp_creditcard(
 	ROW FORMAT DELIMITED
 	FIELDS TERMINATED BY ','
 	STORED AS TEXTFILE
-	LOCATION '/Credit_Card_System/CDW_SAPP_F_CREDIT_CARD/';
+	LOCATION '/user/maria_dev/Credit_Card_System/CDW_SAPP_F_CREDIT_CARD/';
 

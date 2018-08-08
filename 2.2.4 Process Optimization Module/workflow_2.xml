@@ -69,10 +69,10 @@
 
     <action name="cleanup">
         <fs>
-        	<delete path="${nameNode}/Credit_Card_System/CDW_SAPP_D_BRANCH/"/>
-            <delete path="${nameNode}/Credit_Card_System/CDW_SAPP_D_CUSTOMER/"/>
-            <delete path="${nameNode}/Credit_Card_System/CDW_SAPP_D_TIME/"/>
-            <delete path="${nameNode}/Credit_Card_System/CDW_SAPP_F_CREDIT_CARD/"/>
+        	<delete path="${nameNode}/user/maria_dev/Credit_Card_System/CDW_SAPP_D_BRANCH/"/>
+            <delete path="${nameNode}/user/maria_dev/Credit_Card_System/CDW_SAPP_D_CUSTOMER/"/>
+            <delete path="${nameNode}/user/maria_dev/Credit_Card_System/CDW_SAPP_D_TIME/"/>
+            <delete path="${nameNode}/user/maria_dev/Credit_Card_System/CDW_SAPP_F_CREDIT_CARD/"/>
         </fs>
         <ok to="end"/>
         <error to="kill_job"/>

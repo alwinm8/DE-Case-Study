@@ -6,8 +6,8 @@
          <job-tracker>${jobTracker}</job-tracker>
          <name-node>${nameNode}</name-node>
          <prepare>
-               <delete path="${nameNode}/Credit_Card_System/"/>
-               <mkdir path="${nameNode}/Credit_Card_System"/>
+               <delete path="${nameNode}/user/maria_dev/Credit_Card_System/"/>
+               <mkdir path="${nameNode}/user/maria_dev/Credit_Card_System"/>
          </prepare>
          <command>job --meta-connect jdbc:hsqldb:hsql://localhost:16000/sqoop --exec sqoop_customer</command>
          <archive>/user/maria_dev/case_study/lib/java-json.jar#java-json.jar</archive>
@@ -51,10 +51,10 @@
 
    <action name="rename_sqoop">
         <fs>
-            <move source='${nameNode}/Credit_Card_System/CDW_SAPP_D_CUSTOMER/part-m-00000' target='${nameNode}/Credit_Card_System/CDW_SAPP_CUSTOMER.txt'/>
-            <move source='${nameNode}/Credit_Card_System/CDW_SAPP_D_BRANCH/part-m-00000' target='${nameNode}/Credit_Card_System/CDW_SAPP_BRANCH.txt'/>
-            <move source='${nameNode}/Credit_Card_System/CDW_SAPP_D_TIME/part-m-00000' target='${nameNode}/Credit_Card_System/CDW_SAPP_TIME.txt'/>
-            <move source='${nameNode}/Credit_Card_System/CDW_SAPP_F_CREDIT_CARD/part-m-00000' target='${nameNode}/Credit_Card_System/CDW_SAPP_CREDITCARD.txt'/>
+            <move source='${nameNode}/user/maria_dev/Credit_Card_System/CDW_SAPP_D_CUSTOMER/part-m-00000' target='${nameNode}/user/maria_dev/Credit_Card_System/CDW_SAPP_CUSTOMER.txt'/>
+            <move source='${nameNode}/user/maria_dev/Credit_Card_System/CDW_SAPP_D_BRANCH/part-m-00000' target='${nameNode}/user/maria_dev/Credit_Card_System/CDW_SAPP_BRANCH.txt'/>
+            <move source='${nameNode}/user/maria_dev/Credit_Card_System/CDW_SAPP_D_TIME/part-m-00000' target='${nameNode}/user/maria_dev/Credit_Card_System/CDW_SAPP_TIME.txt'/>
+            <move source='${nameNode}/user/maria_dev/Credit_Card_System/CDW_SAPP_F_CREDIT_CARD/part-m-00000' target='${nameNode}/user/maria_dev/Credit_Card_System/CDW_SAPP_CREDITCARD.txt'/>
         </fs>
         <ok to="hive_create_import"/>
         <error to="kill_job"/>
